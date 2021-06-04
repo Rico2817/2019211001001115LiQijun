@@ -19,96 +19,9 @@
         <param-name>password</param-name>
         <param-value>admin123456</param-value>
     </context-param>
-    <!-- add code about new servlet-->
-    <servlet>
-        <servlet-name>ConfigServlet</servlet-name>
-        <servlet-class>com.LiQijun.week4.demo.ConfigServlet</servlet-class>
-        <init-param>
-            <param-name>name</param-name>
-            <param-value>LiQijun</param-value>
-        </init-param>
-        <init-param>
-            <param-name>studentID</param-name>
-            <param-value>2019211001001115</param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <servlet-class>com.LiQijun.week3.demo.LifeCycleServlet</servlet-class>
-    </servlet>
-    <!--automatic code-->
 
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.LiQijun.week5.demo.LoginServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <!--<servlet>
-        <servlet-name>JDBC_DemoServlet</servlet-name>
-        <servlet-class>com.LiQijun.week4.demo.JDBC_DemoServlet</servlet-class>
-        <init-param>
-            <param-name>driver</param-name>
-            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
-        </init-param>
-        <init-param>
-            <param-name>url</param-name>
-            <param-value>jdbc:sqlserver://127.0.0.1:1433;databaseName=userdb;</param-value>
-        </init-param>
-        <init-param>
-            <param-name>user</param-name>
-            <param-value>sa</param-value>
-        </init-param>
-        <init-param>
-            <param-name>password</param-name>
-            <param-value>admin123456</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-
-    </servlet>-->
-    <servlet-mapping>
-        <servlet-name>ConfigServlet</servlet-name>
-        <url-pattern>/config</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <url-pattern>/life</url-pattern>
-        <!--/life==LifeCycleServlet==com.LiQijun.week3.demo.LifeCycleServlet-->
-    </servlet-mapping>
-    <!--<servlet-mapping>
-        <servlet-name>JDBC_DemoServlet</servlet-name>
-        <url-pattern>/jdbc</url-pattern>
-    </servlet-mapping>-->
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>assignment1.jsp</welcome-file>
         <!--When you run app.first request send to home .. HomeServlet-->
     </welcome-file-list>
-
-    <filter>
-        <filter-name>AuthFilter</filter-name>
-        <filter-class>com.LiQijun.filter.AuthFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>HelloFilter</filter-name>
-        <filter-class>com.LiQijun.filter.HelloFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-
-    <filter>
-        <filter-name>LoggerFilter</filter-name>
-        <filter-class>com.LiQijun.filter.LoggerFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoggerFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
 </web-app>
