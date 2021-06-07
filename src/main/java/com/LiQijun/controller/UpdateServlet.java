@@ -62,7 +62,7 @@ public class UpdateServlet extends HttpServlet {
             throwables.printStackTrace();
         }
         //TODO 6:forward to WEB-INF/userInfo.jsp
-        response.sendRedirect("WEB-INF/userInfo.jsp");
+        request.getRequestDispatcher("accountDetails").forward(request,response);
 
     }
 }

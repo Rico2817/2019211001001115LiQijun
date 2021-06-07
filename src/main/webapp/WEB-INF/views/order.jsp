@@ -100,30 +100,32 @@
 					</c:when>
 					<c:otherwise>
 					<!-- loop_start -->
-						
+						<c:set var="cal" value="0.0"/>
+						<c:forEach var="c" items="${cart}">
 						<tr>
 							<td class="cart_product">
 								<a href="">
-								<img src="getImg?id=productId" alt="" style="height: 150px; width: 150px"></a>
+								<img src="getImg?id=${c.product.productId}" alt="" style="height: 150px; width: 150px"></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">product Name </a></h4>
-								<p>Web ID: product Id </p>
+								<h4><a href="">${c.product.productName} </a></h4>
+								<p>Web ID: ${c.product.productId}</p>
 							</td>
 							<td class="cart_price">
-								<p>price</p>
+								<p>${c.product.price}</p>
 							</td>
 							<td class="cart_price">
-								<p>quantity</p>
+								<p>${c.quantity}</p>
 							</td>
 							<td class="cart_total">
-								<p id="total" class="cart_total_price">price*quantity</p>
+								<p id="total" class="cart_total_price">${c.product.price*c.quantity}</p>
 							</td>
 							<td class="cart_delete">
 		<a class="cart_quantity_delete" href="<%=basePath%>cart?action=remove&productId=${c.product.productId}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
-						
+							<c:set var="cal" value="${cal+(c.product.price*c.quantity)}"/>
+						</c:forEach>
 					<!--loop_end-->
 						</c:otherwise>
 						</c:choose>
@@ -158,11 +160,11 @@
 	
 			<div class="payment-options">
 			<!-- loop_start -->
-			
+			<c:forEach var="pType" items="${paymentTypeList}">
 					<span>
-						<label><input name="paymentId" value="1" type="checkbox" varStatus="status"  value="paymentId">payment Type </label>
+						<label><input name="paymentId" value="1" type="checkbox" varStatus="status"  value="${pType.paymentId}">payment Type </label>
 					</span>
-					
+			</c:forEach>
 					<!-- loop_end -->
 					
 					<span>

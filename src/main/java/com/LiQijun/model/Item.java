@@ -1,12 +1,11 @@
 package com.LiQijun.model;
 
-import java.io.Serializable;
 
-public class Item implements Serializable {
+public class Item {
     private Product product;
     private int quantity;
 
-    public Item(){super();}
+    public Item(){}
 
     public Item(Product product, int quantity) {
         super();

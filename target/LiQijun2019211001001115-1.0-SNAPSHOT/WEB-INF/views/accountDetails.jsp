@@ -72,10 +72,10 @@
 						</td>
 						<td class="cart_total">
 						<%
-							com.dabing.model.Order o=(com.dabing.model.Order)pageContext.findAttribute("o");
+							com.LiQijun.model.Order o=(com.LiQijun.model.Order)pageContext.findAttribute("o");
 							int n=o.getPaymentId();
 							java.sql.Connection con=(java.sql.Connection)application.getAttribute("con");
-							String paymentType=com.dabing.model.Payment.findByPaymentId(con,n);
+							String paymentType=com.LiQijun.model.Payment.findByPaymentId(con,n);
 							 %>
 								<p class="cart_total_price"><%=paymentType %></p>
 							</td>

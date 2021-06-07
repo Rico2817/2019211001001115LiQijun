@@ -29,6 +29,7 @@ public class CartServlet extends HttpServlet {
             if (request.getParameter("action") == null) {
                 displayCart(request, response);
             } else if (request.getParameter("action").equals("add")) {
+                //System.out.println("buy");
                 buy(request, response);
             } else if (request.getParameter("action").equals("remove")) {
                 remove(request, response);
@@ -53,11 +54,11 @@ public class CartServlet extends HttpServlet {
         response.sendRedirect(path);
     }
 
-    private void buy(HttpServletRequest request, HttpServletResponse response) {
+    private void buy(HttpServletRequest request, HttpServletResponse response)throws IOException {
         //add item into cart
         HttpSession session = request.getSession();
         int id = request.getParameter("productId") != null ? Integer.parseInt(request.getParameter("productId")) : 0;
-        int quantity = request.getParameter("quantity") != null ? Integer.parseInt(request.getParameter("quantity")) : 0;
+        int quantity = request.getParameter("quantity") != null ? Integer.parseInt(request.getParameter("quantity")) : 1;
         if (id == 0 || quantity == 0) {
             //error
             return;
@@ -85,11 +86,8 @@ public class CartServlet extends HttpServlet {
             }
             session.setAttribute("cart", cart);
         }
-        try {
-            response.sendRedirect(request.getContextPath()+"/cart");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String path = request.getContextPath() + "/cart";
+        response.sendRedirect(path);
     }
 
     private int isExisting(int id, List<Item> cart) {

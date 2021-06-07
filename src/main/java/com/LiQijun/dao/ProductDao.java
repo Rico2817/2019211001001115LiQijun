@@ -81,7 +81,7 @@ public class ProductDao implements  IProductDao{
             product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             product.setPrice(rs.getDouble("price"));
-            product.setProductDescription(rs.getString("Description"));
+            product.setProductDescription(rs.getString("productDescription"));
             product.setCategoryId(rs.getInt("CategoryId"));
         }
         ps.close();
