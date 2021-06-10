@@ -117,9 +117,9 @@ public class OrderDao implements IOrderDao {
 			ResultSet	rs = st.executeQuery();
 			while(rs.next()){
 				Order o=new Order();
-				o.setOrderId(rs.getInt("OrderID"));
-				o.setCustomerId(rs.getInt("CustomerID"));
-				o.setPaymentId(rs.getInt("PaymentID"));
+				o.setOrderId(rs.getInt("OrderId"));
+				o.setCustomerId(rs.getInt("CustomerId"));
+				o.setPaymentId(rs.getInt("PaymentId"));
 				o.setOrderDate(rs.getTimestamp("OrderDate"));
 				o.setFirstName(rs.getString("FirstName"));
 				o.setLastName(rs.getString("LastName"));
@@ -146,7 +146,7 @@ public class OrderDao implements IOrderDao {
 	}
 	@Override 
 	public List<Order> findByUserId(Connection con,Object CustomerID) {
-		return findByProperty(con,"CustomerID", CustomerID);
+		return findByProperty(con,"CustomerId", CustomerID);
 	}
 
 	@Override 

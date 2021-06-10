@@ -49,7 +49,7 @@ public class UserDao implements IUserDao {
                 +"',email='"+user.getEmail()
                 +"',gender='"+user.getGender()
                 +"',birthDate='"+user.getBirthDate()
-                +"'where cid='"+user.getId()+"'";
+                +"'where id='"+user.getId()+"'";
         PreparedStatement ps= con.prepareStatement(sql);
         flag=ps.executeUpdate();
         ps.close();

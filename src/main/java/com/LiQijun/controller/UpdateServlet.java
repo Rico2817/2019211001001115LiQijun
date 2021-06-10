@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "UpdateServlet", value = "/UpdateUser")
+@WebServlet(name = "UpdateServlet", value = "/updateUser")
 public class UpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +48,7 @@ public class UpdateServlet extends HttpServlet {
         user.setEmail(email);
         user.setGender(gender);
         user.setBirthDate(date);
+        System.out.println(date);
         //TODO 4:create an object of UserDao
         UserDao dao=new UserDao();
         //TODO 5:Call updateUser() in UserDao

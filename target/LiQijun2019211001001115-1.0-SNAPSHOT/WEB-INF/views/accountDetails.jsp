@@ -60,15 +60,15 @@
 					</c:when>
 					<c:otherwise>
 					<!-- loop_start -->
-					
+					<c:forEach var="o" items="${orderList}">
 						<tr>
-						<td>OID:order Id</td>
-						<td>order Date</td>
-						<td><p>first Name last Name</p>
-						<p> address1</p>
-						<p>address2</p>
-						<p>city,state,country-postalCode</p>
-						<p>phone</p>
+						<td>OID:${o.orderId}</td>
+						<td>${o.orderDate}</td>
+						<td><p>${o.firstName} ${o.lastName}</p>
+						<p>${o.address1}</p>
+						<p>${o.address2}</p>
+						<p>${o.city},${o.state},${o.country}-${o.postalCode}</p>
+						<p>${o.phone}</p>
 						</td>
 						<td class="cart_total">
 						<%
@@ -82,6 +82,7 @@
 						<td><button class="btn btn-default update" id="${o.orderId }">Details</button></td>
 						
 							</tr>
+					</c:forEach>
 								<!-- loop_end -->
 							</c:otherwise></c:choose>
 						
